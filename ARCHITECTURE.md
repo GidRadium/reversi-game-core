@@ -75,6 +75,7 @@ GameData: - все данные о текущей игре
 
 Диаграмма:
 
+#### ARCHITECTURE.png
 ```mermaid
 classDiagram
 
@@ -114,7 +115,12 @@ class App {
 App --> IGUI
 App --> IDB
 App --> IReversiCore
+```
 
+
+#### ARCHITECTURE_DATA.png
+```mermaid
+classDiagram
 
 class Player {
     +id: Int
@@ -145,13 +151,6 @@ class Game {
     +createdAt: Date
 }
 
-class GameResult {
-    +winner: Player
-    +scoreBlack: Int
-    +scoreWhite: Int
-}
-
-
 class Cell {
     <<enumeration>>
     Empty
@@ -170,6 +169,7 @@ class GameState {
 GameData --> Player
 GameData --> Field
 GameData --> Move
+GameData --> GameState
 Game --> GameData
 Field --> Cell
 Move --> Player
